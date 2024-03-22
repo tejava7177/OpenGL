@@ -1,0 +1,6 @@
+#define GL_SILENCE_DEPRECATION      //버전 오류 해결
+
+#include <iostream>
+#include <OpenGL/gl.h>
+#include <OpenGl/glu.h>
+#include <GLUT/glut.h>
