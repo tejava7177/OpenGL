@@ -5,6 +5,8 @@
 //  Created by 심주흔 on 2024/03/27.
 //
 
+//테스트처리
+
 #define GL_SILENCE_DEPRECATION      //버전 오류 해결
 
 #include <OpenGL/gl.h>
