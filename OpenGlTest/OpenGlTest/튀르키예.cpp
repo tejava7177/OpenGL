@@ -6,6 +6,12 @@
 //#include <GLUT/glut.h>
 //#include <math.h>
 //
+//
+//// 전역 변수로 색을 표시할 변수 추가
+//GLfloat red = 1.0f;
+//GLfloat green = 1.0f;
+//GLfloat blue = 1.0f;
+//
 //void display_circle() {
 //    glClearColor(1.0f, 0.0f, 0.0f, 1.0f); // 배경색을 빨간색으로 설정
 //    glClear(GL_COLOR_BUFFER_BIT); // 현재 버퍼를 지우고 설정된 배경색으로 새로 그림
@@ -61,6 +67,8 @@
 //    glFlush();
 //
 //}
+//
+//
 //
 //
 //
