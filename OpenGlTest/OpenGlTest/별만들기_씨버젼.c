@@ -57,7 +57,7 @@
 //    glBegin(GL_TRIANGLES); // 세 점을 이용해서 삼각형 그리기
 //
 //    glColor3f(currentColor[0], currentColor[1], currentColor[2]);
-//    // 별을 구성하는 두 개의 삼각형을 그립니다.
+//     //별을 구성하는 두 개의 삼각형을 그립니다.ㅁ
 //    glVertex2f(-0.1f, -0.1f);           //첫번째 삼각형 좌표
 //    glVertex2f(0.1f, -0.1f);            //첫번째 삼각형 좌표
 //    glVertex2f(0.0f, 0.2f);             //첫번째 삼각형 좌표
