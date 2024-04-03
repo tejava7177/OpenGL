@@ -24,6 +24,7 @@
 		44C588FB2BB7FD2E007C91FB /* 튀르키예국기.c in Sources */ = {isa = PBXBuildFile; fileRef = 44C588FA2BB7FD2E007C91FB /* 튀르키예국기.c */; };
 		44D685AF2BAD6EB000F45FB4 /* timer_Callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44D685AE2BAD6EB000F45FB4 /* timer_Callback.cpp */; };
 		44D6CA3B2BB44C3800717C50 /* 별만들기.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44D6CA3A2BB44C3800717C50 /* 별만들기.cpp */; };
+		44E1C5FB2BBD70BD00D44D91 /* 도형_그리기_수업.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44E1C5FA2BBD70BD00D44D91 /* 도형_그리기_수업.cpp */; };
 		44EADB592BA97B60004AFE9F /* Reshape_callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44EADB582BA97B60004AFE9F /* Reshape_callback.cpp */; };
 		44EADB5B2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44EADB5A2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp */; };
 		44F7EDA22BB2B25A005217F3 /* 라인그리기.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44F7EDA12BB2B25A005217F3 /* 라인그리기.cpp */; };
@@ -65,6 +66,7 @@
 		44C588FA2BB7FD2E007C91FB /* 튀르키예국기.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "튀르키예국기.c"; sourceTree = "<group>"; };
 		44D685AE2BAD6EB000F45FB4 /* timer_Callback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = timer_Callback.cpp; sourceTree = "<group>"; };
 		44D6CA3A2BB44C3800717C50 /* 별만들기.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "별만들기.cpp"; sourceTree = "<group>"; };
+		44E1C5FA2BBD70BD00D44D91 /* 도형_그리기_수업.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "도형_그리기_수업.cpp"; sourceTree = "<group>"; };
 		44EADB582BA97B60004AFE9F /* Reshape_callback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Reshape_callback.cpp; sourceTree = "<group>"; };
 		44EADB5A2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mouse_Keyboard_callback.cpp; sourceTree = "<group>"; };
 		44F7EDA12BB2B25A005217F3 /* 라인그리기.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "라인그리기.cpp"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				441B95332BB647FD00DD37CF /* 튀르키예_과제제출용.cpp */,
 				44C588FA2BB7FD2E007C91FB /* 튀르키예국기.c */,
 				4482D2772BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp */,
+				44E1C5FA2BBD70BD00D44D91 /* 도형_그리기_수업.cpp */,
 			);
 			path = OpenGlTest;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44387C932BB187BC00ED6CBC /* time_Callback_2.cpp in Sources */,
+				44E1C5FB2BBD70BD00D44D91 /* 도형_그리기_수업.cpp in Sources */,
 				44D685AF2BAD6EB000F45FB4 /* timer_Callback.cpp in Sources */,
 				44F7EDA82BB2B4BB005217F3 /* 튀르키예.cpp in Sources */,
 				44C588F92BB7C5BA007C91FB /* 별만들기_씨버젼.c in Sources */,
