@@ -7,10 +7,6 @@
 
 #define GL_SILENCE_DEPRECATION // 버전 오류 해결(무시)
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>            //회전 여부를 판단하기 위해 bool 사용을 위한 헤더파일
 #include <OpenGL/gl.h>          //mac Xcode에서 OpenGL을 사용하기 위한 헤더파일
 #include <OpenGL/glu.h>         //mac Xcode에서 OpenGL을 사용하기 위한 헤더파일
 #include <GLUT/glut.h>          //mac Xcode에서 OpenGL을 사용하기 위한 헤더파일
@@ -92,6 +88,7 @@ int main(int argc, char** argv) {
     glutCreateWindow("Object Transformation Program");
     myinit();
     glutDisplayFunc(display);
+    glutReshapeFunc(myReshape);
     glutMainLoop();
 
     return 0;
