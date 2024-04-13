@@ -6,6 +6,7 @@
 ////
 //
 //
+//// 맥 환경에서 실행가능합니다.
 //#define GL_SILENCE_DEPRECATION      //버전 오류 해결
 //
 //#include <iostream>
@@ -13,12 +14,14 @@
 //#include <OpenGl/glu.h>
 //#include <GLUT/glut.h>
 //
+////점들의 정점 위치를 먼저 설정해줌.
 //float v1[3] = {75.0, 400.0, 0.0};
 //float v2[3] = {150.0,100.0,0.0};
 //float v3[3] = {255.0, 400.0,0.0};
 //float v4[3] = { 300.0, 100.0,0.0 };
 //float v5[3] = {375.0,400.0,0.0};
 //float v6[3] = {450.0,100.0,0.0};
+//
 //
 //
 //void init(void) {
@@ -29,6 +32,7 @@
 //}
 //
 //
+//// 점을 그리는 코드
 //void draw_points() {
 //    glColor3f(1.0, 0.0, 0.0);
 //
@@ -44,6 +48,7 @@
 //    glEnd();
 //}
 //
+//// 선을 그리는 코드
 //void draw_lines() {
 //    glColor3f(0.0, 1.0, 0.0);
 //    glLineWidth(1);
@@ -58,6 +63,8 @@
 //    glEnd();
 //}
 //
+//
+//// 삼각형 fan 을 그리는 코드
 //void draw_trianle_fan() {
 //    glColor3f(0.0, 1.0, 0.0);
 //
@@ -73,6 +80,7 @@
 //    glEnd();
 //}
 //
+//// 사각형을 그리는 코드
 //void draw_quads() {
 //    glColor3f(0.0, 1.0, 0.0);
 //
@@ -85,6 +93,7 @@
 //    glEnd();
 //}
 //
+////사각형 strip 을 그리는 코드
 //void draw_quad_strip() {
 //    glColor3f(0.0, 1.0, 0.0);
 //
@@ -99,6 +108,7 @@
 //    glEnd();
 //}
 //
+//// 다각형을 그리는 코드
 //void draw_polygon() {
 //    glColor3f(0.0, 1.0, 0.0);
 //
@@ -113,6 +123,7 @@
 //    glEnd();
 //}
 //
+//
 //void display(void) {
 //    glClear(GL_COLOR_BUFFER_BIT);
 //    draw_points();
@@ -121,7 +132,7 @@
 //    //draw_quad_strip();
 //    //draw_trianle_fan();
 //    //draw_quads();
-//    draw_quad_strip();
+//    //draw_quad_strip();
 //    //draw_polygon();
 //    glFlush();
 //}

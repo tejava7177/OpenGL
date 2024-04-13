@@ -11,6 +11,7 @@
 		4410AD102B983B76006BEFB2 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4410AD0F2B983B76006BEFB2 /* OpenGL.framework */; };
 		4410AD122B983CDD006BEFB2 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4410AD112B983CDD006BEFB2 /* GLUT.framework */; };
 		441B95342BB647FD00DD37CF /* 튀르키예_과제제출용.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 441B95332BB647FD00DD37CF /* 튀르키예_과제제출용.cpp */; };
+		442437572BCAA25400A83B55 /* 원그리기.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 442437562BCAA25400A83B55 /* 원그리기.cpp */; };
 		442F9AB52BB1B0D800D62D7F /* idle_callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 442F9AB42BB1B0D800D62D7F /* idle_callback.cpp */; };
 		44387C932BB187BC00ED6CBC /* time_Callback_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44387C922BB187BC00ED6CBC /* time_Callback_2.cpp */; };
 		44387C952BB1884C00ED6CBC /* 사각형회전및더블버퍼.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44387C942BB1884C00ED6CBC /* 사각형회전및더블버퍼.cpp */; };
@@ -57,6 +58,7 @@
 		4410AD0F2B983B76006BEFB2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		4410AD112B983CDD006BEFB2 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		441B95332BB647FD00DD37CF /* 튀르키예_과제제출용.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "튀르키예_과제제출용.cpp"; sourceTree = "<group>"; };
+		442437562BCAA25400A83B55 /* 원그리기.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "원그리기.cpp"; sourceTree = "<group>"; };
 		442F9AB42BB1B0D800D62D7F /* idle_callback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = idle_callback.cpp; sourceTree = "<group>"; };
 		44387C922BB187BC00ED6CBC /* time_Callback_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = time_Callback_2.cpp; sourceTree = "<group>"; };
 		44387C942BB1884C00ED6CBC /* 사각형회전및더블버퍼.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "사각형회전및더블버퍼.cpp"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				44831B782BC8FF5F00B10477 /* pushpop.cpp */,
 				44831B7A2BC90D9C00B10477 /* 투영방법.cpp */,
 				44831B7C2BC90F3A00B10477 /* 임의의 점에 대한 회전.cpp */,
+				442437562BCAA25400A83B55 /* 원그리기.cpp */,
 			);
 			path = OpenGlTest;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				44387C952BB1884C00ED6CBC /* 사각형회전및더블버퍼.cpp in Sources */,
 				44EADB5B2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp in Sources */,
 				442F9AB52BB1B0D800D62D7F /* idle_callback.cpp in Sources */,
+				442437572BCAA25400A83B55 /* 원그리기.cpp in Sources */,
 				44831B792BC8FF5F00B10477 /* pushpop.cpp in Sources */,
 				44F7EDAA2BB2D754005217F3 /* Demo_triangle.cpp in Sources */,
 				44F7EDA42BB2B29E005217F3 /* 도형그리기.cpp in Sources */,
