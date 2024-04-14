@@ -51,6 +51,18 @@ void display(){
 }
 
 
+void reshape(int w, int h){
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    
+    if (w <= h) {
+        gluOrtho2D(-1.0, 1.0, -1.0 * (GLfloat)h / (GLfloat)w, 1.0 * (GLfloat)h/ (GLfloat)w); // 화면 비율에 맞게 투영
+    }
+    else {
+        gluOrtho2D(-1.0 * (GLfloat)w / (GLfloat)h, 1.0 * (GLfloat)w / (GLfloat)h, -1.0, 1.0); // 화면 비율에 맞게 투영
+    }
+}
 
 
 int main(int argc, char** argv){
@@ -63,6 +75,7 @@ int main(int argc, char** argv){
     
     init();
     glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
     
     glutMainLoop();
 
