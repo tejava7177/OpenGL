@@ -21,6 +21,7 @@
 		444B41352BC3E49200E85EB6 /* 타원곡선.c in Sources */ = {isa = PBXBuildFile; fileRef = 444B41342BC3E49200E85EB6 /* 타원곡선.c */; };
 		4478CDCD2BE23D0500894AEA /* cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4478CDCC2BE23D0500894AEA /* cube.cpp */; };
 		4478CDCF2BE23D6B00894AEA /* cube2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4478CDCE2BE23D6B00894AEA /* cube2.cpp */; };
+		4479DEA52BEB77310005FC87 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4479DEA42BEB77310005FC87 /* triangle.cpp */; };
 		447E322E2BC4FA4400EFD03F /* 카메라이동.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 447E322D2BC4FA4300EFD03F /* 카메라이동.cpp */; };
 		4482D2782BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4482D2772BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp */; };
 		44831B7B2BC90D9C00B10477 /* 투영방법.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44831B7A2BC90D9C00B10477 /* 투영방법.cpp */; };
@@ -73,6 +74,7 @@
 		444B41342BC3E49200E85EB6 /* 타원곡선.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "타원곡선.c"; sourceTree = "<group>"; };
 		4478CDCC2BE23D0500894AEA /* cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cube.cpp; sourceTree = "<group>"; };
 		4478CDCE2BE23D6B00894AEA /* cube2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cube2.cpp; sourceTree = "<group>"; };
+		4479DEA42BEB77310005FC87 /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
 		447E322D2BC4FA4300EFD03F /* 카메라이동.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "카메라이동.cpp"; sourceTree = "<group>"; };
 		4482D2772BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "별만들기_과제제출용.cpp"; sourceTree = "<group>"; };
 		44831B7A2BC90D9C00B10477 /* 투영방법.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "투영방법.cpp"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				44CFBD062BDF837E00C3552F /* popupSubMenu.cpp */,
 				4478CDCC2BE23D0500894AEA /* cube.cpp */,
 				4478CDCE2BE23D6B00894AEA /* cube2.cpp */,
+				4479DEA42BEB77310005FC87 /* triangle.cpp */,
 			);
 			path = OpenGlTest;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				4443A3DC2BA1D87000B6BC76 /* 기타모양.cpp in Sources */,
 				44CFBD082BDF837E00C3552F /* popupSubMenu.cpp in Sources */,
 				44387C952BB1884C00ED6CBC /* 사각형회전및더블버퍼.cpp in Sources */,
+				4479DEA52BEB77310005FC87 /* triangle.cpp in Sources */,
 				44EADB5B2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp in Sources */,
 				4435B19D2BD75FCC0016DA35 /* planet.cpp in Sources */,
 				442F9AB52BB1B0D800D62D7F /* idle_callback.cpp in Sources */,
