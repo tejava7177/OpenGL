@@ -10,7 +10,7 @@
 #include <OpenGL/gl.h>
 #include <OpenGl/glu.h>
 #include <GLUT/glut.h>
-#include <vector>
+
 #include <cstdlib> // 랜덤 색상을 생성하기 위해 필요
 
 static int leftFirst = GL_TRUE;

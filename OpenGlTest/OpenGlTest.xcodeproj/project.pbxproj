@@ -39,6 +39,7 @@
 		44E1C5FB2BBD70BD00D44D91 /* 도형_그리기_수업.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44E1C5FA2BBD70BD00D44D91 /* 도형_그리기_수업.cpp */; };
 		44EADB592BA97B60004AFE9F /* Reshape_callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44EADB582BA97B60004AFE9F /* Reshape_callback.cpp */; };
 		44EADB5B2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44EADB5A2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp */; };
+		44F23D142BEB79E800CF3C47 /* grainLeather.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44F23D132BEB79E800CF3C47 /* grainLeather.cpp */; };
 		44F7EDA22BB2B25A005217F3 /* 라인그리기.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44F7EDA12BB2B25A005217F3 /* 라인그리기.cpp */; };
 		44F7EDA42BB2B29E005217F3 /* 도형그리기.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44F7EDA32BB2B29E005217F3 /* 도형그리기.cpp */; };
 		44F7EDA62BB2B2DC005217F3 /* Idle_Callback2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44F7EDA52BB2B2DC005217F3 /* Idle_Callback2.cpp */; };
@@ -93,6 +94,7 @@
 		44E1C5FA2BBD70BD00D44D91 /* 도형_그리기_수업.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "도형_그리기_수업.cpp"; sourceTree = "<group>"; };
 		44EADB582BA97B60004AFE9F /* Reshape_callback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Reshape_callback.cpp; sourceTree = "<group>"; };
 		44EADB5A2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mouse_Keyboard_callback.cpp; sourceTree = "<group>"; };
+		44F23D132BEB79E800CF3C47 /* grainLeather.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = grainLeather.cpp; sourceTree = "<group>"; };
 		44F7EDA12BB2B25A005217F3 /* 라인그리기.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "라인그리기.cpp"; sourceTree = "<group>"; };
 		44F7EDA32BB2B29E005217F3 /* 도형그리기.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "도형그리기.cpp"; sourceTree = "<group>"; };
 		44F7EDA52BB2B2DC005217F3 /* Idle_Callback2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Idle_Callback2.cpp; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				4478CDCC2BE23D0500894AEA /* cube.cpp */,
 				4478CDCE2BE23D6B00894AEA /* cube2.cpp */,
 				4479DEA42BEB77310005FC87 /* triangle.cpp */,
+				44F23D132BEB79E800CF3C47 /* grainLeather.cpp */,
 			);
 			path = OpenGlTest;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				441B95342BB647FD00DD37CF /* 튀르키예_과제제출용.cpp in Sources */,
 				44F7EDA62BB2B2DC005217F3 /* Idle_Callback2.cpp in Sources */,
 				44F7EDA22BB2B25A005217F3 /* 라인그리기.cpp in Sources */,
+				44F23D142BEB79E800CF3C47 /* grainLeather.cpp in Sources */,
 				44D6CA3B2BB44C3800717C50 /* 별만들기.cpp in Sources */,
 				44EADB592BA97B60004AFE9F /* Reshape_callback.cpp in Sources */,
 				44C4984E2BA072BF001CF8F0 /* 예제파일.cpp in Sources */,
