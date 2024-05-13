@@ -26,6 +26,8 @@
 		4482D2782BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4482D2772BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp */; };
 		44831B7B2BC90D9C00B10477 /* 투영방법.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44831B7A2BC90D9C00B10477 /* 투영방법.cpp */; };
 		44831B7D2BC90F3A00B10477 /* 임의의 점에 대한 회전.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44831B7C2BC90F3A00B10477 /* 임의의 점에 대한 회전.cpp */; };
+		4484B6412BF1E0BF00B32947 /* lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4484B6402BF1E0BF00B32947 /* lighting.cpp */; };
+		4484B6432BF1E51800B32947 /* movelighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4484B6422BF1E51800B32947 /* movelighting.cpp */; };
 		44BA9A8A2BA80E6E004CF5A2 /* 사각형그리기실습.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44BA9A892BA80E6E004CF5A2 /* 사각형그리기실습.cpp */; };
 		44BA9A8C2BA820CA004CF5A2 /* 랜덤사각형그리기실습.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44BA9A8B2BA820CA004CF5A2 /* 랜덤사각형그리기실습.cpp */; };
 		44C4984E2BA072BF001CF8F0 /* 예제파일.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44C4984C2BA072BF001CF8F0 /* 예제파일.cpp */; };
@@ -80,6 +82,8 @@
 		4482D2772BBA9C5B00ACB5A8 /* 별만들기_과제제출용.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "별만들기_과제제출용.cpp"; sourceTree = "<group>"; };
 		44831B7A2BC90D9C00B10477 /* 투영방법.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "투영방법.cpp"; sourceTree = "<group>"; };
 		44831B7C2BC90F3A00B10477 /* 임의의 점에 대한 회전.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "임의의 점에 대한 회전.cpp"; sourceTree = "<group>"; };
+		4484B6402BF1E0BF00B32947 /* lighting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lighting.cpp; sourceTree = "<group>"; };
+		4484B6422BF1E51800B32947 /* movelighting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = movelighting.cpp; sourceTree = "<group>"; };
 		44BA9A892BA80E6E004CF5A2 /* 사각형그리기실습.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "사각형그리기실습.cpp"; sourceTree = "<group>"; };
 		44BA9A8B2BA820CA004CF5A2 /* 랜덤사각형그리기실습.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "랜덤사각형그리기실습.cpp"; sourceTree = "<group>"; };
 		44C4984C2BA072BF001CF8F0 /* 예제파일.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "예제파일.cpp"; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				44BA9A892BA80E6E004CF5A2 /* 사각형그리기실습.cpp */,
 				44BA9A8B2BA820CA004CF5A2 /* 랜덤사각형그리기실습.cpp */,
 				44EADB582BA97B60004AFE9F /* Reshape_callback.cpp */,
+				44D6CA3A2BB44C3800717C50 /* 별만들기.cpp */,
 				44EADB5A2BA97BF2004AFE9F /* Mouse_Keyboard_callback.cpp */,
 				44D685AE2BAD6EB000F45FB4 /* timer_Callback.cpp */,
 				44387C922BB187BC00ED6CBC /* time_Callback_2.cpp */,
@@ -151,7 +156,6 @@
 				44F7EDA32BB2B29E005217F3 /* 도형그리기.cpp */,
 				44F7EDA52BB2B2DC005217F3 /* Idle_Callback2.cpp */,
 				44F7EDA72BB2B4BB005217F3 /* 튀르키예.cpp */,
-				44D6CA3A2BB44C3800717C50 /* 별만들기.cpp */,
 				44F7EDA92BB2D754005217F3 /* Demo_triangle.cpp */,
 				44C588F62BB6F71B007C91FB /* 별만들기_GPT4.cpp */,
 				44C588F82BB7C5BA007C91FB /* 별만들기_씨버젼.c */,
@@ -172,6 +176,8 @@
 				4478CDCE2BE23D6B00894AEA /* cube2.cpp */,
 				4479DEA42BEB77310005FC87 /* triangle.cpp */,
 				44F23D132BEB79E800CF3C47 /* grainLeather.cpp */,
+				4484B6402BF1E0BF00B32947 /* lighting.cpp */,
+				4484B6422BF1E51800B32947 /* movelighting.cpp */,
 			);
 			path = OpenGlTest;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 				44831B7B2BC90D9C00B10477 /* 투영방법.cpp in Sources */,
 				44D685AF2BAD6EB000F45FB4 /* timer_Callback.cpp in Sources */,
 				44F7EDA82BB2B4BB005217F3 /* 튀르키예.cpp in Sources */,
+				4484B6412BF1E0BF00B32947 /* lighting.cpp in Sources */,
 				44C588F92BB7C5BA007C91FB /* 별만들기_씨버젼.c in Sources */,
 				447E322E2BC4FA4400EFD03F /* 카메라이동.cpp in Sources */,
 				44CFBD052BDF830000C3552F /* popupMenu.cpp in Sources */,
@@ -277,6 +284,7 @@
 				44831B7D2BC90F3A00B10477 /* 임의의 점에 대한 회전.cpp in Sources */,
 				4478CDCF2BE23D6B00894AEA /* cube2.cpp in Sources */,
 				4410AD082B983B49006BEFB2 /* main.cpp in Sources */,
+				4484B6432BF1E51800B32947 /* movelighting.cpp in Sources */,
 				44BA9A8C2BA820CA004CF5A2 /* 랜덤사각형그리기실습.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
