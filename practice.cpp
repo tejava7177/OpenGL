@@ -142,10 +142,13 @@ void rendering(Model model) {
     // 광택 설정
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-    
-
-
+   
     glPushMatrix();  // 현재 모델뷰 행렬을 저장
+
+
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, guitarColor);  
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, guitarColor);
 
     // 모델을 왼쪽으로 이동
     glTranslatef(-15.0f, 0.0f, 0.0f);  // x축으로 -10 단위만큼 이동 (값은 원하는 만큼 조정 가능)
@@ -202,14 +205,7 @@ void rendering(Model model) {
 
 
 
-/*
-void setCamera(float eyeX, float eyeY, float eyeZ, float upX, float upY, float upZ) {
-    
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(eyeX, eyeY, eyeZ, 0.0, 0.0, 0.0, upX, upY, upZ);
-}
-*/
+
 
 void setCamera(int viewport) {
     float* pos = cameraPositions[viewport - 1];
@@ -226,37 +222,7 @@ void drawScene() {
     rendering(global_model1);
 }
 
-/*
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // 각 뷰포트 설정
-    int width = glutGet(GLUT_WINDOW_WIDTH);
-    int height = glutGet(GLUT_WINDOW_HEIGHT);
-
-    // 뷰포트 1: 위에서 바라보기
-    glViewport(0, height / 2, width / 2, height / 2);
-    setCamera(0.0, 107.0, 0.0, 0.0, 0.0, -1.0);
-    drawScene();
-
-    // 뷰포트 2: 오른쪽에서 바라보기
-    glViewport(width / 2, height / 2, width / 2, height / 2);
-    setCamera(107.0, 0.0, 105.0, 0.0, 1.0, 0.0);
-    drawScene();
-
-    // 뷰포트 3: 앞에서 바라보기
-    glViewport(0, 0, width / 2, height / 2);
-    setCamera(-105.0, 0.0, 107.0, 0.0, 1.0, 0.0);
-    drawScene();
-
-    // 뷰포트 4: 랜덤 바라보기
-    glViewport(width / 2, 0, width / 2, height / 2);
-    setCamera(-30.0, 100.0, 20.0, 0.0, 0.0, -1.0);
-    drawScene();
-
-    glutSwapBuffers();
-}
-*/
 
 
 void drawViewportBorder(int width, int height) {
