@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 #include <gl/glut.h>
 #include <vector>
 #include "lodepng.h"
@@ -25,17 +26,15 @@ GLfloat ambientLight[4] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat diffuseLight[4] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat specular[4] = { 1.0, 1.0, 1.0, 1.0 };
 
-GLfloat planeColor[3] = { 0.0f, 0.0f, 0.0f };  // 기본 색상 검은색
-GLfloat guitarColor[3] = { 0.5f, 0.5f, 0.5f };  // 기본 색상 검은색
-
-
+GLfloat planeColor[3] = { 0.0f, 0.0f, 0.0f };
+GLfloat guitarColor[3] = { 0.5f, 0.5f, 0.5f };
 
 // 조명의 색상을 저장할 전역 변수 추가
 GLfloat lightAmbient[4] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat lightDiffuse[4] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat lightSpecular[4] = { 1.0, 1.0, 1.0, 1.0 };
 
-
+float lightMovementSpeed = 0.5f;
 
 // 요구조건 2
 int selectedViewport = 0;  // 선택된 뷰포트 (0: 없음, 1: 위, 2: 오른쪽, 3: 앞, 4: 랜덤)
@@ -52,109 +51,77 @@ float cameraDirections[4][3] = {
     {0.0, 0.0, -1.0}   // 랜덤 뷰포트 방향
 };
 
-
 float scale = 0.5;
-GLuint textureID[2];
-bool textureEnabled = false;
+GLuint textureID;
+bool textureEnabled = true;
 std::vector<unsigned char> image2;
 
-/*
-void loadTextures() {
-    glGenTextures(2, textureID);  // 텍스처 객체 생성
-
-    // woodtexture.png 텍스처 로드
+void loadTexture(const char* path) {
     std::vector<unsigned char> image;
     unsigned width, height;
-    unsigned error = lodepng::decode(image, width, height, "woodtexture.png");
-
+    unsigned error = lodepng::decode(image, width, height, path);
     if (error) {
-        printf("Failed to load texture: %s\n", lodepng_error_text(error));
+        std::cout << "error " << error << ": " << lodepng_error_text(error) << std::endl;
         return;
     }
 
-    glBindTexture(GL_TEXTURE_2D, textureID[0]);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &image[0]);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    size_t u2 = 1; while (u2 < width) u2 *= 2;
+    size_t v2 = 1; while (v2 < height) v2 *= 2;
+    image2 = std::vector<unsigned char>(u2 * v2 * 4);
+    for (size_t y = 0; y < height; y++)
+        for (size_t x = 0; x < width; x++)
+            for (size_t c = 0; c < 4; c++) {
+                image2[4 * u2 * y + 4 * x + c] = image[4 * width * y + 4 * x + c];
+            }
+
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, u2, v2, 0, GL_RGBA, GL_UNSIGNED_BYTE, &image2[0]);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 }
-*/
 
-
-
+void textureinitialize() {
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    loadTexture("woodtexture.png");
+}
 
 void setupPlane(Model& model) {
-
-    // Plane의 y 위치는 모델의 최소 y값에 조금 더 아래에 위치
     double planeY = -0.01;  // Plane의 높이 위치
-
-    // Plane의 좌표 설정
     double halfSize = 150.0;  // Plane의 절반 크기
 
-    
-
-    //glEnable(GL_LIGHTING);  // 조명 켜기
     glMaterialfv(GL_FRONT, GL_AMBIENT, planeColor);  // Plane 색상 설정
     glMaterialfv(GL_FRONT, GL_DIFFUSE, planeColor);
-
     glColor3f(planeColor[0], planeColor[1], planeColor[2]);  // Plane 색상 설정
-    
+
     glBegin(GL_QUADS);
     glVertex3f(-halfSize, planeY, -halfSize);  // 왼쪽 아래
     glVertex3f(-halfSize, planeY, halfSize);   // 왼쪽 위
     glVertex3f(halfSize, planeY, halfSize);    // 오른쪽 위
     glVertex3f(halfSize, planeY, -halfSize);   // 오른쪽 아래
     glEnd();
-
-    //glDisable(GL_LIGHTING);  // 조명 끄기
 }
 
-
-
-
 void rendering(Model model) {
-
-    
-    // 주변광 (Ambient Light)
- // 물체의 전체적인 밝기를 조절하는 역할을 합니다. 조명이 없는 곳에서도 물체가 보이게 하는 기본적인 조명입니다.
-    GLfloat mat_ambient[] = { 0.2, 0.2, 0.2, 1.0 }; // 낮은 강도의 흰색
-
-    // 확산광 (Diffuse Light)
-    // 물체의 표면에 직접 닿는 조명으로, 표면의 색상과 질감을 나타냅니다. 조명의 위치와 물체의 표면의 법선 벡터에 따라 달라집니다.
-    GLfloat mat_diffuse[] = { 0.8, 0.8, 0.8, 1.0 }; // 중간 강도의 흰색
-
-    // 반사광 (Specular Light)
-    // 물체의 반짝이는 부분을 나타내는 조명입니다. 조명의 위치와 관찰자의 위치에 따라 달라지며, 하이라이트 효과를 제공합니다.
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 }; // 높은 강도의 흰색
-
-    // 광택 (Shininess)
-    // 반사광의 정도를 결정합니다. 값이 클수록 하이라이트가 작고 날카로워지며, 값이 작을수록 넓고 부드러워집니다.
+    GLfloat mat_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
+    GLfloat mat_diffuse[] = { 0.8, 0.8, 0.8, 1.0 };
+    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat mat_shininess[] = { 50.0 };
 
-    // 주변광 설정
     glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-
-    // 확산광 설정
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-
-    // 반사광 설정
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-
-    // 광택 설정
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-   
     glPushMatrix();  // 현재 모델뷰 행렬을 저장
 
-
-
-    glMaterialfv(GL_FRONT, GL_AMBIENT, guitarColor);  
+    glMaterialfv(GL_FRONT, GL_AMBIENT, guitarColor);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, guitarColor);
-
-    // 모델을 왼쪽으로 이동
-    glTranslatef(-15.0f, 0.0f, 0.0f);  // x축으로 -10 단위만큼 이동 (값은 원하는 만큼 조정 가능)
+    glTranslatef(-15.0f, 0.0f, 0.0f);  // 모델을 왼쪽으로 이동
 
     glColor3f(guitarColor[0], guitarColor[1], guitarColor[2]);  // Plane 색상 설정
-    
+
     for (int i = 0; i < model.fNum; i++) {
         switch (model.ModelType) {
         case 0:
@@ -165,7 +132,10 @@ void rendering(Model model) {
             glEnd();
             break;
         case 1:
-            glBindTexture(GL_TEXTURE_2D, textureID[0]);
+            if (textureEnabled) {
+                glEnable(GL_TEXTURE_2D);
+                glBindTexture(GL_TEXTURE_2D, textureID);
+            }
             glBegin(GL_TRIANGLES);
             glTexCoord2f(model.vtPoint[model.fPoint[i][1]][0], model.vtPoint[model.fPoint[i][1]][1]);
             glVertex3f(model.vPoint[model.fPoint[i][0]][0] / scale, model.vPoint[model.fPoint[i][0]][1] / scale, model.vPoint[model.fPoint[i][0]][2] / scale);
@@ -174,6 +144,9 @@ void rendering(Model model) {
             glTexCoord2f(model.vtPoint[model.fPoint[i][5]][0], model.vtPoint[model.fPoint[i][5]][1]);
             glVertex3f(model.vPoint[model.fPoint[i][4]][0] / scale, model.vPoint[model.fPoint[i][4]][1] / scale, model.vPoint[model.fPoint[i][4]][2] / scale);
             glEnd();
+            if (textureEnabled) {
+                glDisable(GL_TEXTURE_2D);
+            }
             break;
         case 2:
             glBegin(GL_TRIANGLES);
@@ -186,7 +159,10 @@ void rendering(Model model) {
             glEnd();
             break;
         case 3:
-            glBindTexture(GL_TEXTURE_2D, textureID[0]);
+            if (textureEnabled) {
+                glEnable(GL_TEXTURE_2D);
+                glBindTexture(GL_TEXTURE_2D, textureID);
+            }
             glBegin(GL_TRIANGLES);
             glNormal3f(model.vnPoint[model.fPoint[i][2]][0], model.vnPoint[model.fPoint[i][2]][1], model.vnPoint[model.fPoint[i][2]][2]);
             glTexCoord2f(model.vtPoint[model.fPoint[i][1]][0], model.vtPoint[model.fPoint[i][1]][1]);
@@ -198,14 +174,13 @@ void rendering(Model model) {
             glTexCoord2f(model.vtPoint[model.fPoint[i][7]][0], model.vtPoint[model.fPoint[i][7]][1]);
             glVertex3f(model.vPoint[model.fPoint[i][6]][0] / scale, model.vPoint[model.fPoint[i][6]][1] / scale, model.vPoint[model.fPoint[i][6]][2] / scale);
             glEnd();
+            if (textureEnabled) {
+                glDisable(GL_TEXTURE_2D);
+            }
             break;
         }
     }
 }
-
-
-
-
 
 void setCamera(int viewport) {
     float* pos = cameraPositions[viewport - 1];
@@ -215,15 +190,10 @@ void setCamera(int viewport) {
     gluLookAt(pos[0], pos[1], pos[2], 0.0, 0.0, 0.0, dir[0], dir[1], dir[2]);
 }
 
-
-
 void drawScene() {
     setupPlane(global_model1);
     rendering(global_model1);
 }
-
-
-
 
 void drawViewportBorder(int width, int height) {
     glMatrixMode(GL_PROJECTION);
@@ -249,8 +219,6 @@ void drawViewportBorder(int width, int height) {
     glPopMatrix();
 }
 
-
-
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -269,7 +237,6 @@ void display() {
     glViewport(width / 2, height / 2, width / 2, height / 2);
     setCamera(2);
     drawScene();
-    //하이라이트생성
     if (selectedViewport == 2) {
         drawViewportBorder(width, height);
     }
@@ -278,7 +245,6 @@ void display() {
     glViewport(0, 0, width / 2, height / 2);
     setCamera(3);
     drawScene();
-    //하이라이트생성
     if (selectedViewport == 3) {
         drawViewportBorder(width, height);
     }
@@ -287,17 +253,12 @@ void display() {
     glViewport(width / 2, 0, width / 2, height / 2);
     setCamera(4);
     drawScene();
-    //하이라이트생성
     if (selectedViewport == 4) {
         drawViewportBorder(width, height);
     }
 
-  
     glutSwapBuffers();
 }
-
-
-
 
 Model ObjLoad(const char* name) {
     Model model;
@@ -442,6 +403,8 @@ void init() {
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
+
+    textureinitialize();  // 초기화 함수 호출
 }
 
 void reshape(int new_w, int new_h) {
@@ -472,17 +435,14 @@ void freeModel(Model model) {
     free(model.fPoint);
 }
 
-
 void changePlaneColor() {
     // 랜덤 색상 설정
     planeColor[0] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
     planeColor[1] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
     planeColor[2] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
-
 }
 
 void changeModelColor() {
-    
     // 랜덤 색상 설정
     guitarColor[0] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
     guitarColor[1] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
@@ -509,8 +469,6 @@ void changeLightColor() {
     glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular);
 }
 
-
-
 void toggleLight() {
     static bool lightOn = true;
     lightOn = !lightOn;
@@ -522,14 +480,10 @@ void toggleLight() {
     }
 }
 
-
 void toggleTexture() {
     textureEnabled = !textureEnabled;  // 텍스처 사용 여부를 토글
     glutPostRedisplay();  // 화면을 새로 그릴 것을 요청
 }
-
-
-
 
 void menu(int item) {
     switch (item) {
@@ -545,24 +499,15 @@ void menu(int item) {
         // 조명 on/off
         toggleLight();
         break;
-
     case 4:
         changeLightColor();
         break;
-
     case 5:
         toggleTexture();
         break;
     }
-
-   
     glutPostRedisplay();  // 화면을 새로 그릴 것을 요청
 }
-
-
-
-
-
 
 //팝업메뉴
 void createMenu() {
@@ -574,11 +519,6 @@ void createMenu() {
     glutAddMenuEntry("Toggle Texture", 5);
     glutAttachMenu(GLUT_RIGHT_BUTTON);  // 오른쪽 버튼에 메뉴 붙이기
 }
-
-
-
-
-
 
 void keyboardFunc(unsigned char key, int x, int y) {
     switch (key) {
@@ -621,11 +561,16 @@ void specialKeys(int key, int x, int y) {
     glutPostRedisplay();
 }
 
-
-
-
-
-
+void mouseFunc(int button, int state, int x, int y) {
+    if (button == 3) {  // 휠 업
+        lightPosition[2] += lightMovementSpeed;
+        glutPostRedisplay();  // 화면을 새로 그릴 것을 요청
+    }
+    else if (button == 4) {  // 휠 다운
+        lightPosition[1] -= lightMovementSpeed;
+        glutPostRedisplay();  // 화면을 새로 그릴 것을 요청
+    }
+}
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
@@ -635,14 +580,15 @@ int main(int argc, char** argv) {
     glutCreateWindow("OBJ Viewer");
 
     init();
-    //loadTextures();  // 텍스처 로드 함수 호출
     createMenu();  // 메뉴 생성 호출
-
 
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboardFunc);  // 키보드 입력 처리 함수
     glutSpecialFunc(specialKeys);  // 방향키 입력 처리 함수
+
+    // 마우스 이벤트 콜백 설정
+    glutMouseFunc(mouseFunc);
 
     glutMainLoop();
 
